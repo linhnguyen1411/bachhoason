@@ -17,7 +17,7 @@ class Admins::PasswordsController < Devise::PasswordsController
       status: status,
       errors: admin&.errors.to_json,
       message_error: t("admins.passwords.update.not_found"),
-      redirect_page: admin_login_path
+      redirect_page: admins_login_path
     }
   end
 end

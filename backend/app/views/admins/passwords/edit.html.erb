@@ -1,40 +1,36 @@
-<div class="login-title text-center">
-  <h1><i class="gi gi-flash"></i>Reset password</h1>
-</div>
-<div class="block push-bit">
-<%= form_for(resource, as: resource_name, url: password_path(resource_name),
-  html: {method: :put, class: "form-horizontal form-bordered form-control-borderless",
-    id: "form-change-password"}) do |f| %>
-  <%= f.hidden_field :reset_password_token %>
-  <div class="form-group">
-    <div class="col-xs-12">
+<div class="reg-block">
+  <div class="reg-block-header">
+    <h2>Đặt lại mật khẩu</h2>
+  </div>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name),
+    html: {method: :put, id: "form-change-password"}) do |f| %>
+    <%= f.hidden_field :reset_password_token %>
+    <div class="form-group">
       <div class="input-group">
-        <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
         <%= f.password_field :password, autofocus: true, autocomplete: "off",
-          class: "form-control input-lg", placeholder: "Password" %>
+          class: "form-control", placeholder: "Password" %>
       </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-xs-12">
+    <div class="form-group">
       <div class="input-group">
-        <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
         <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "off",
-          class: "form-control input-lg", placeholder: "Password confirmation" %>
+          class: "form-control", placeholder: "Password confirmation" %>
       </div>
     </div>
-  </div>
-  <div class="form-group form-actions">
-    <div class="col-xs-12 text-right">
-      <button type="submit" class="btn btn-sm btn-primary btn-lock">
-        <i class="fa fa-angle-right"></i> Reset Password
-      </button>
+    <div class="form-group form-actions">
+      <div class="col-xs-12 text-right">
+        <button type="submit" class="btn btn-sm btn-primary btn-lock">
+          <i class="fa fa-angle-right"></i> Đặt lại mật khẩu
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-xs-12 text-center">
-      <small>Did you remember your password?</small>
-      <a href="<%= admin_login_path %>"><small>Login</small></a>
+    <div class="form-group">
+      <div class="col-xs-12 text-center">
+        <small>Did you remember your password?</small>
+        <a href="<%= admins_login_path %>"><small>Đăng nhập</small></a>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

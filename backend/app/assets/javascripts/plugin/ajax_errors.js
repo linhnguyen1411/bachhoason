@@ -7,7 +7,7 @@ function addErrors(res) {
   resetFormError();
   var errorMessages = JSON.parse(res.errors);
   $.each(errorMessages, function(key, value) {
-    var $inputElement = $("[name$='[" + key + "]']").not("[name*='_attributes']").not("[type='hidden']");
+    var $inputElement = $("[name$='[" + key + "]']").not("[name*='_attributes']").not("[type='hidden']").parents(".input-group");
     if (_.isEmpty(value)) return;
       addErrorToInput($inputElement, value[0]);
   });
