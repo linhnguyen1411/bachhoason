@@ -15,8 +15,12 @@ Rails.application.routes.draw do
       get "forgot_password", to: "passwords#new"
     end
     get "/dashboard", to: "dashboards#index"
-    resources :product_types
     resources :products
+    resources :roles
+    resources :providers
+    resources :paints
+    resources :abouts
+    resources :branches
   end
 
   # scope module: "homes" do
