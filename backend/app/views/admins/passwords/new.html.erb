@@ -1,4 +1,4 @@
-<div class="login-title text-center">
+<!-- <div class="login-title text-center">
   <h1><i class="gi gi-flash"></i>Reset password</h1>
 </div>
 <div class="block push-bit">
@@ -24,7 +24,31 @@
   <div class="form-group">
     <div class="col-xs-12 text-center">
       <small>Did you remember your password?</small>
-      <a href="<%= admin_login_path %>"><small>Login</small></a>
+      <a href="<%= admins_login_path %>"><small>Login</small></a>
     </div>
   </div>
 <% end %>
+ -->
+
+<div class="reg-block">
+  <div class="reg-block-header">
+    <h2>Đặt lại mật khẩu</h2>
+  </div>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name),
+    html: {method: :post, id: "form-reminder"}) do |f| %>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",
+          id: "user-login-email" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="text-center">
+          <button type="submit" class="btn btn-default btn-lock"> Xác nhận</button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
