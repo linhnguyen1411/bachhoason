@@ -1,0 +1,237 @@
+<div class="col-md-9" ng-controller="ProductsController as vm" ng-init="vm.init()" ng-cloak>
+  <div class="tab-v1">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#home-1" data-toggle="tab">Thông tin cơ bản</a></li>
+      <li><a href="#profile-1" data-toggle="tab">Thông tin bổ sung</a></li>
+      <li><a href="#messages-1" data-toggle="tab">Thông tin nâng cao</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="home-1">
+        <form action="#" class="sky-form">
+          <header>Thông tin cơ bản</header>
+          <fieldset>
+            <section>
+              <label class="label">Loại</label>
+              <div class="row">
+              <div class="col-md-4">
+                <label class="select">
+                  <select class="new-product-type">
+                    <option value="0" style="font-weight: bold">Nhà/Đất</option>
+                    <option value="1" >Nhà bán</option>
+                    <option value="2">Đất bán</option>
+                    <option value="3" style="font-weight: bold">Cửa hàng</option>
+                    <option value="4">Avelina</option>
+                  </select>
+                </label>
+              </div>
+            </section>
+            <section>
+              <label class="label">Tiêu đề</label>
+              <label class="input">
+              <input type="text">
+              </label>
+            </section>
+            <section>
+              <label class="label">Mô tả chi tiết</label>
+              <label class="textarea">
+              <textarea rows="7"></textarea>
+              </label>
+            </section>
+            <section>
+              <div class="dropzone" id="image-upload" style="border-color: red"></div>
+            </section>
+            <section>
+              <label class="label">Gắn thẻ</label>
+              <label class="input">
+              <input type="text">
+              </label>
+            </section>
+            <section>
+              <label class="label">Hình thức</label>
+              <div class="row">
+                <% Product.statuses.each do |key, value| %>
+                  <div class="col col-3">
+                    <label class="radio state-success">
+                    <input type="radio" name="radio" value="<%= key %>"><i class="rounded-x"></i>
+                      <%= t "product.enums.statuses.#{key}" %>
+                    </label>
+                  </div>
+                <% end %>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="label">Giá</label>
+                  <label class="input">
+                  <input type="text">
+                  </label>
+                </div>
+                <div class="col-md-2">
+                  <label class="label">Đơn vị</label>
+                  <label class="select">
+                    <select class="new-product-type">
+                      <option value="0">Đơn vị (vnđ)</option>
+                      <% Product.units.each do |key, value| %>
+                        <option value="<%= value %>"><%= t "product.enums.units.#{key}" %></option>
+                      <% end %>
+                    </select>
+                  </label>
+                </div>
+                <div class="col-md-6">
+                  <label class="label">Giấy tờ pháp lý</label>
+                  <label class="select">
+                    <select class="new-product-type">
+                      <option value="0">Loại giấy tờ</option>
+                      <% Product.certificates.each do |key, value| %>
+                        <option value="<%= value %>"><%= t "product.enums.certificates.#{key}" %></option>
+                      <% end %>
+                    </select>
+                  </label>
+                  </label>
+                </div>
+              </div>
+            </section>
+          </fieldset>
+          <header>Thông tin chi tiết</header>
+          <fieldset>
+            <section>
+              <label class="label">Vị trí</label>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="select">
+                    <select class="select2 select-provinces" ng-model="vm.province_id" select2-search>
+                      <option value="" selected>Chọn thành phố/ tỉnh</option>
+                      <option value="1">Alexandra</option>
+                      <option value="2">Alice</option>
+                      <option value="3">Anastasia</option>
+                      <option value="4">Avelina</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="select">
+                    <select class="select2">
+                      <option value="0">Chọn quận/ huyện</option>
+                      <option value="1">Alexandra</option>
+                      <option value="2">Alice</option>
+                      <option value="3">Anastasia</option>
+                      <option value="4">Avelina</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="select">
+                    <select class="select2">
+                      <option value="0">Chọn phường/ xã</option>
+                      <option value="1">Alexandra</option>
+                      <option value="2">Alice</option>
+                      <option value="3">Anastasia</option>
+                      <option value="4">Avelina</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="label">Lô/ Thửa</label>
+                  <label class="input">
+                  <input type="text">
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="label">Đường</label>
+                  <label class="input">
+                  <input type="text">
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="label">Diện tích</label>
+                  <label class="input">
+                  <input type="text">
+                  </label>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="label">Mặt tiền</label>
+                  <label class="input">
+                  <input type="text">
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="label">Hướng</label>
+                  <label class="input">
+                  <input type="text">
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="label">Dự án</label>
+                  <label class="input">
+                  <input type="text">
+                  </label>
+                </div>
+              </div>
+            </section>
+          </fieldset>
+          <!-- Het thong tin co ban -->
+          <header>Thông tin bổ sung</header>
+          <fieldset>
+            <section>
+              <div class="row">
+                <div class="col-md-4" ng-repeat="(key, value) in vm.product_detail_options">
+                  <label class="label" ng-bind="vm.I18nProductDetailOptions[key]"></label>
+                  <label class="input">
+                  <input type="number" ng-value="value">
+                  </label>
+                </div>
+              </div>
+            </section>
+            <section>
+              <label class="label" style="color: blue">Nội thất</label>
+              <div class="row">
+                <div class="col-md-12">
+                  <label class="col-md-3 checkbox"
+                    ng-repeat="(key, value) in vm.product_extention_options">
+                    <input type="checkbox" name="checkbox" ng-value="key" ng-checked="false"><i></i>
+                      {{vm.I18nProductExtentionOptions[key]}}
+                  </label>
+                </div>
+              </div>
+            </section>
+            <section>
+              <label class="label" style="color: blue">Đặc điểm xã hội</label>
+              <div class="row">
+                <div class="col-md-12">
+                  <label class="checkbox col-md-3" ng-repeat="(key, value) in vm.product_social_options">
+                    <input type="checkbox" name="checkbox" ng-checked="false"><i></i>
+                      {{vm.I18nProductSocialOptions[key]}}
+                  </label>
+                </div>
+              </div>
+            </section>
+          </fieldset>
+          <footer>
+            <button type="submit" class="btn-u">Submit</button>
+            <button type="button" class="btn-u btn-u-default" onclick="window.history.back();">Back</button>
+          </footer>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <script>
+  $(document).ready(function(){
+    Dropzone.autoDiscover = false;
+    var dropzone = new Dropzone ("#image-upload", {
+      paramName: "image[avatar]",
+      addRemoveLinks: true,
+      url: "/products",
+      headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+  });
+</script> -->
