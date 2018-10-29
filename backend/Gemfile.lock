@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: e04ce964cbcdbfa9519b536d0c962328e690092d
+  branch: master
+  specs:
+    faker (1.9.1)
+      i18n (>= 0.7)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -355,6 +363,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   config
   devise
+  faker!
   figaro
   font-awesome-rails
   friendly_id (~> 5.2.0)

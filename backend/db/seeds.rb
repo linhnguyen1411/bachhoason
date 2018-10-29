@@ -1,7 +1,87 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts "Create role"
+Role.destroy_all
+Role.create! name: "Admin", description: "Quản trị viên website"
+Role.create! name: "Owner", description: "Giám đốc"
+Role.create! name: "Branch Owner", description: "Trưởng chi nhánh"
+Role.create! name: "Employee", description: "Nhân viên"
+
+puts "Create dummy Admin"
+Admin.destroy_all
+Admin.create! name: "Linh Nguyen", email: "linhnguyen1411@gmail.com", password: "123123", password_confirmation: "123123", role_id: 1
+Admin.create! name: "Nam Dao", email: "namdao1996@gmail.com", password: "123123", password_confirmation: "123123", role_id: 2
+Admin.create! name: "Tuan Anh", email: "tuananh@gmail.com", password: "123123", password_confirmation: "123123", role_id: 3
+Admin.create! name: "Employee", email: "employee@gmail.com", password: "123123", password_confirmation: "123123", role_id: 4
+
+puts "Create Branch"
+Branch.destroy_all
+Branch.create! name: "Đại lý sơn Lee Sin", admin_id: 1, address: "01 Canada - Da Nang", phone: "099999999"
+Branch.create! name: "Đại lý sơn Leblanc", admin_id: 2, address: "01 Truong Sa - Tam ky", phone: "099999999"
+Branch.create! name: "Đại lý sơn Xinzhao", admin_id: 3, address: "01 Hoang Sa - Hoi An", phone: "099999999"
+Branch.create! name: "Đại lý sơn Lucian", admin_id: 4, address: "01 Obama - Ha Noi", phone: "099999999"
+
+
+puts "Create Provider"
+Provider.destroy_all
+Provider.create! name: "Dulux"
+Provider.create! name: "Maxilite"
+Provider.create! name: "Kova"
+Provider.create! name: "Expo"
+Provider.create! name: "Mykolor"
+Provider.create! name: "Spec"
+Provider.create! name: "Boss"
+Provider.create! name: "Joton"
+Provider.create! name: "Jotun"
+Provider.create! name: "Toa"
+
+puts "Create Paint"
+Paint.destroy_all
+Paint.create! name: "Sơn chống thấm"
+Paint.create! name: "Sơn dầu"
+Paint.create! name: "Sơn nước"
+Paint.create! name: "Sơn giá rẻ"
+Paint.create! name: "Sơn chịu nhiệt"
+Paint.create! name: "Sơn chống rỉ"
+Paint.create! name: "Sơn công nghiệp"
+
+puts "Create provider detail"
+ProviderDetail.destroy_all
+ProviderDetail.create provider_id: 1, paint_id: 1
+ProviderDetail.create provider_id: 1, paint_id: 2
+ProviderDetail.create provider_id: 1, paint_id: 4
+ProviderDetail.create provider_id: 1, paint_id: 5
+ProviderDetail.create provider_id: 1, paint_id: 6
+
+ProviderDetail.create provider_id: 2, paint_id: 3
+ProviderDetail.create provider_id: 2, paint_id: 4
+ProviderDetail.create provider_id: 2, paint_id: 5
+ProviderDetail.create provider_id: 2, paint_id: 6
+ProviderDetail.create provider_id: 2, paint_id: 7
+
+ProviderDetail.create provider_id: 3, paint_id: 1
+ProviderDetail.create provider_id: 3, paint_id: 4
+ProviderDetail.create provider_id: 3, paint_id: 5
+ProviderDetail.create provider_id: 3, paint_id: 6
+ProviderDetail.create provider_id: 3, paint_id: 7
+
+ProviderDetail.create provider_id: 4, paint_id: 6
+ProviderDetail.create provider_id: 4, paint_id: 7
+
+ProviderDetail.create provider_id: 5, paint_id: 5
+ProviderDetail.create provider_id: 5, paint_id: 7
+
+ProviderDetail.create provider_id: 6, paint_id: 6
+ProviderDetail.create provider_id: 6, paint_id: 7
+
+ProviderDetail.create provider_id: 7, paint_id: 2
+ProviderDetail.create provider_id: 7, paint_id: 4
+
+ProviderDetail.create provider_id: 8, paint_id: 1
+ProviderDetail.create provider_id: 8, paint_id: 2
+
+ProviderDetail.create provider_id: 9, paint_id: 2
+ProviderDetail.create provider_id: 9, paint_id: 5
+
+ProviderDetail.create provider_id: 10, paint_id: 1
+ProviderDetail.create provider_id: 10, paint_id: 3
+
+

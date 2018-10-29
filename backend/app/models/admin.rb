@@ -8,5 +8,6 @@ class Admin < ApplicationRecord
   has_many :abouts
   has_many :products
   has_many :articles
+  belongs_to :role
 
 end
