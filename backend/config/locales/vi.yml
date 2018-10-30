@@ -1,5 +1,5 @@
 vi:
-  users:
+  admins:
     registrations:
       new:
         title: "Đăng kí tài khoản"
@@ -10,7 +10,10 @@ vi:
       new:
         btn: "Đăng nhập"
         title: "Đăng nhập"
+        description: "Vui lòng đăng nhập bằng tài khoản và mật khẩu được quản lý cung cấp!"
+        remember_me: "Ghi nhớ tôi"
         not_have_account: "Chưa có tài khoản?"
+        forgot_password: "Quên mật khẩu?"
     passwords:
       new:
         btn: "Xác nhận"
@@ -27,8 +30,3 @@ vi:
       male: "Nam"
       female: "Nữ"
       undefined: "Khác"
-  admins:
-    passwords:
-      create:
-        not_found: "Địa chỉ email không tồn tại."
-        success: "Email hướng dẫn đặt lại mật khẩu đã được gửi đến địa chỉ emal mà bạn đã đăng ký. Vui lòng kiểm tra email của bạn để xem liệu bạn đã nhận được email từ chúng tôi hay chưa. Vui lòng liên hệ hỗ trợ nếu bạn không nhận được bất kỳ email nào."

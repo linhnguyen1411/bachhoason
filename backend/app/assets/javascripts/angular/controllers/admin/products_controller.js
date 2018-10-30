@@ -1,12 +1,12 @@
-'use strict';
+// 'use strict';
 
-angular.module('adminApp').controller('ProductsController', ProductsController);
-ProductsController.$inject = ['$location', '$scope', 'productService'];
+// angular.module('adminApp').controller('ProductsController', ProductsController);
+// ProductsController.$inject = ['$location', '$scope', 'productService'];
 
-function ProductsController($location, $scope, productService) {
-  var vm = this;
-  vm.$scope = $scope;
+// function ProductsController($location, $scope, productService) {
+//   var vm = this;
+//   vm.$scope = $scope;
 
-  vm.init = function() {
-  }
-}
+//   vm.init = function() {
+//   }
+// }
