@@ -1,0 +1,3 @@
+provider:
+  name:
+    max_length: 50

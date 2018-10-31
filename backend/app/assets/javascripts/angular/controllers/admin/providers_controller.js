@@ -1,38 +1,38 @@
 'use strict';
 
-angular.module('adminApp').controller('ProductTypesController', ProductTypesController);
-ProductTypesController.$inject = ['$location', '$scope', 'productTypeService'];
+angular.module('adminApp').controller('ProvidersController', ProvidersController);
+ProvidersController.$inject = ['$location', '$scope', 'providerService'];
 
-function ProductTypesController($location, $scope, productTypeService) {
+function ProvidersController($location, $scope, providerService) {
   var vm = this;
   vm.$scope = $scope;
 
   vm.init = function() {
-    productTypeService.getData().then(function mySuccess(response){
+    providerService.getData().then(function mySuccess(response){
       angular.extend(vm, response.data);
     });
   }
 
   vm.showData = function(id){
-    productTypeService.showData(id).then(function mySuccess(response){
-      if (response.data.status) {
+    providerService.showData(id).then(function mySuccess(response){
+      if(response.data.status) {
         angular.extend(vm, response.data);
-        $('#add-new-product-types').modal('show');
+        $('#provider-modal').modal('show');
         vm.currentEditId = id;
       } else {
-        swal("Sai rồi", "Tìm ko ra thằng loại bất động sản này", "error");
+        swal("Lỗi rồi", response.data.message, "error");
       }
     });
   }
 
   function createData(){
-    productTypeService.createData({product_type: vm.product_type}).then(function mySuccess(response){
+    providerService.createData({provider: {name: vm.provider.name}}).then(function mySuccess(response){
       $(".form-group-validate").removeClass("has-error");
       $(".form-group-validate").find(".help-block").remove();
-      if (response.data.status) {
+      if(response.data.status) {
         angular.extend(vm, response.data);
-        swal("Thành công", "Loại bất động sản mới đã được thêm", "success");
-        $('#add-new-product-types').modal('hide');
+        swal("Thành công", response.data.message, "success");
+        $('#provider-modal').modal('hide');
       } else {
         var errors = response.data.errors;
         _.forEach(errors, function(values, key) {
@@ -48,13 +48,13 @@ function ProductTypesController($location, $scope, productTypeService) {
   }
 
   function updateData(id){
-    productTypeService.updateData(id, {product_type: vm.product_type}).then(function mySuccess(response){
+    providerService.updateData(id, {provider: {name: vm.provider.name}}).then(function mySuccess(response){
       $(".form-group-validate").removeClass("has-error");
       $(".form-group-validate").find(".help-block").remove();
-      if (response.data.status) {
+      if(response.data.status) {
         angular.extend(vm, response.data);
-        swal("Thành công", "Loại bất động sản đó đã được sửa", "success");
-        $('#add-new-product-types').modal('hide');
+        swal("Thành công", response.data.message , "success");
+        $('#provider-modal').modal('hide');
       } else {
         var errors = response.data.errors;
         _.forEach(errors, function(values, key) {
@@ -72,20 +72,20 @@ function ProductTypesController($location, $scope, productTypeService) {
   vm.destroyData = function(id){
     swal({
       title: "Chú ý!",
-      text: "Mày có muốn xoá cái này thật không?",
+      text: "Bạn chắc chắn muốn xóa bỏ nhà cung cấp?",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
-      confirmButtonText: "Xoá luôn",
-      cancelButtonText: "Thôi đừng",
+      confirmButtonText: "Chắc chắn rồi",
+      cancelButtonText: "Thôi không xóa nữa",
     },
     function() {
-      productTypeService.destroyData(id).then(function mySuccess(response){
+      providerService.destroyData(id).then(function mySuccess(response){
         if (response.data.status) {
           angular.extend(vm, response.data);
-          swal("Thành công", "Xoá xong rồi đấy", "success");
+          swal("Thành công", response.data.message, "success");
         } else {
-          swal("Thất bại", "Xoá không được, cái gì đó sai rồi.", "error");
+          swal("Thất bại", response.data.message, "error");
         }
       })
     });
