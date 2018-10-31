@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :products
     resources :roles
     resources :providers
-    resources :paints
+    resources :catalogs
     resources :abouts
     resources :branches
   end

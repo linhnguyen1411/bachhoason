@@ -1,4 +1,4 @@
-class Paint < ApplicationRecord
+class Catalog < ApplicationRecord
 
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
@@ -9,7 +9,6 @@ class Paint < ApplicationRecord
 
   has_many :provider_details
   has_many :providers, through: :provider_details
-  has_many :paints
 
   before_create :conver_title
 

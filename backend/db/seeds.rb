@@ -33,55 +33,57 @@ Provider.create! name: "Joton"
 Provider.create! name: "Jotun"
 Provider.create! name: "Toa"
 
-puts "Create Paint"
-Paint.destroy_all
-Paint.create! name: "Sơn chống thấm"
-Paint.create! name: "Sơn dầu"
-Paint.create! name: "Sơn nước"
-Paint.create! name: "Sơn giá rẻ"
-Paint.create! name: "Sơn chịu nhiệt"
-Paint.create! name: "Sơn chống rỉ"
-Paint.create! name: "Sơn công nghiệp"
+puts "Create Catalog"
+Catalog.destroy_all
+Catalog.create! name: "Sơn chống thấm"
+Catalog.create! name: "Sơn dầu"
+Catalog.create! name: "Sơn nước"
+Catalog.create! name: "Sơn nước nội thất", parent_id: 3
+Catalog.create! name: "Sơn nước ngoại thất", parent_id: 3
+Catalog.create! name: "Sơn giá rẻ"
+Catalog.create! name: "Sơn chịu nhiệt"
+Catalog.create! name: "Sơn chống rỉ"
+Catalog.create! name: "Sơn công nghiệp"
 
 puts "Create provider detail"
 ProviderDetail.destroy_all
-ProviderDetail.create provider_id: 1, paint_id: 1
-ProviderDetail.create provider_id: 1, paint_id: 2
-ProviderDetail.create provider_id: 1, paint_id: 4
-ProviderDetail.create provider_id: 1, paint_id: 5
-ProviderDetail.create provider_id: 1, paint_id: 6
+ProviderDetail.create provider_id: 1, catalog_id: 1
+ProviderDetail.create provider_id: 1, catalog_id: 2
+ProviderDetail.create provider_id: 1, catalog_id: 4
+ProviderDetail.create provider_id: 1, catalog_id: 5
+ProviderDetail.create provider_id: 1, catalog_id: 6
 
-ProviderDetail.create provider_id: 2, paint_id: 3
-ProviderDetail.create provider_id: 2, paint_id: 4
-ProviderDetail.create provider_id: 2, paint_id: 5
-ProviderDetail.create provider_id: 2, paint_id: 6
-ProviderDetail.create provider_id: 2, paint_id: 7
+ProviderDetail.create provider_id: 2, catalog_id: 3
+ProviderDetail.create provider_id: 2, catalog_id: 4
+ProviderDetail.create provider_id: 2, catalog_id: 5
+ProviderDetail.create provider_id: 2, catalog_id: 6
+ProviderDetail.create provider_id: 2, catalog_id: 7
 
-ProviderDetail.create provider_id: 3, paint_id: 1
-ProviderDetail.create provider_id: 3, paint_id: 4
-ProviderDetail.create provider_id: 3, paint_id: 5
-ProviderDetail.create provider_id: 3, paint_id: 6
-ProviderDetail.create provider_id: 3, paint_id: 7
+ProviderDetail.create provider_id: 3, catalog_id: 1
+ProviderDetail.create provider_id: 3, catalog_id: 4
+ProviderDetail.create provider_id: 3, catalog_id: 5
+ProviderDetail.create provider_id: 3, catalog_id: 6
+ProviderDetail.create provider_id: 3, catalog_id: 7
 
-ProviderDetail.create provider_id: 4, paint_id: 6
-ProviderDetail.create provider_id: 4, paint_id: 7
+ProviderDetail.create provider_id: 4, catalog_id: 6
+ProviderDetail.create provider_id: 4, catalog_id: 7
 
-ProviderDetail.create provider_id: 5, paint_id: 5
-ProviderDetail.create provider_id: 5, paint_id: 7
+ProviderDetail.create provider_id: 5, catalog_id: 5
+ProviderDetail.create provider_id: 5, catalog_id: 7
 
-ProviderDetail.create provider_id: 6, paint_id: 6
-ProviderDetail.create provider_id: 6, paint_id: 7
+ProviderDetail.create provider_id: 6, catalog_id: 6
+ProviderDetail.create provider_id: 6, catalog_id: 7
 
-ProviderDetail.create provider_id: 7, paint_id: 2
-ProviderDetail.create provider_id: 7, paint_id: 4
+ProviderDetail.create provider_id: 7, catalog_id: 2
+ProviderDetail.create provider_id: 7, catalog_id: 4
 
-ProviderDetail.create provider_id: 8, paint_id: 1
-ProviderDetail.create provider_id: 8, paint_id: 2
+ProviderDetail.create provider_id: 8, catalog_id: 1
+ProviderDetail.create provider_id: 8, catalog_id: 2
 
-ProviderDetail.create provider_id: 9, paint_id: 2
-ProviderDetail.create provider_id: 9, paint_id: 5
+ProviderDetail.create provider_id: 9, catalog_id: 2
+ProviderDetail.create provider_id: 9, catalog_id: 5
 
-ProviderDetail.create provider_id: 10, paint_id: 1
-ProviderDetail.create provider_id: 10, paint_id: 3
+ProviderDetail.create provider_id: 10, catalog_id: 1
+ProviderDetail.create provider_id: 10, catalog_id: 3
 
 
