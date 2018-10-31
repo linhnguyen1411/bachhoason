@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
 
-
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :admins, controllers: {sessions: "admins/sessions",
     passwords: "admins/passwords"}
-
-  devise_for :users, controllers: {registrations: "users/registrations",
-    sessions: "users/sessions", passwords: "users/passwords"}
 
   scope module: "admins", path: "admins", as: :admins do
     devise_scope :admin do
@@ -15,6 +11,7 @@ Rails.application.routes.draw do
       get "forgot_password", to: "passwords#new"
     end
     get "/dashboard", to: "dashboards#index"
+    resources :admin_profiles, as: :profile, only: [:show, :update]
     resources :products
     resources :roles
     resources :providers
