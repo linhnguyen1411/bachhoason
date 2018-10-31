@@ -1,0 +1,50 @@
+<div id="page-content" ng-controller="CatalogsController as vm" ng-init="vm.init()">
+  <div class="content-header">
+    <div class="header-section">
+      <h1>
+        <i class="fa fa-tint"></i><%= t ".title" %><br><small></small>
+      </h1>
+    </div>
+  </div>
+  <ul class="breadcrumb breadcrumb-top">
+    <li><%= link_to "Bảng điều khiển", admins_dashboard_path %></li>
+    <li><%= link_to "Danh mục sơn và bột trét", admins_providers_path %></li>
+  </ul>
+  <div class="block full">
+    <div class="block-title">
+      <h2><strong><%= t ".list" %></strong></h2>
+    </div>
+    <button ng-click="vm.openModalCreate()" data-toggle="modal" class="btn btn-sm btn-primary">
+      <i class="fa fa-plus"></i> Thêm mới danh mục</button>
+    <div class="table-responsive">
+      <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+        <thead>
+          <tr>
+            <th class="text-center">Mã số</th>
+            <th class="text-center">Tên danh mục</th>
+            <th class="text-center">Tên danh mục không dấu</th>
+            <th class="text-center">Mã danh mục cha</th>
+            <th class="text-center">Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="catalog in vm.catalogs" >
+            <td class="text-center">{{ catalog.id }}</td>
+            <td class="text-center">{{ catalog.name }}</td>
+            <td class="text-center">{{ catalog.slug }}</td>
+            <td class="text-center">{{ catalog.parent_id }}</td>
+            <td class="text-center">
+              <div class="btn-group">
+                <a ng-click="vm.showData(catalog)" data-toggle="tooltip" title="Sửa"
+                  class="btn btn-xs btn-default"><i class="fa fa-pencil"></i></a>
+                <a ng-click="vm.destroyData(catalog)" data-toggle="tooltip" title="Xóa"
+                  class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%= render "modal_catalogs" %>
+</div>

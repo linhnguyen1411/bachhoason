@@ -3,22 +3,22 @@
 angular.module('adminApp').controller('CategoriesController', CategoriesController);
 CategoriesController.$inject = ['$location', '$scope', 'categoryService'];
 
-function CategoriesController($location, $scope, categoriesService) {
+function CategoriesController($location, $scope, categoryService) {
   var vm = this;
   vm.$scope = $scope;
   vm.categories = [];
   vm.params = {page: 1, per_page: 10};
-  vm.total_items = 100;
+  vm.total_items = 0;
 
   vm.init = function() {
-    categoriesService.loadData(vm.params).then(function mySuccess(res) {
+    categoryService.loadData(vm.params).then(function mySuccess(res) {
       angular.extend(vm, res.data);
     })
   }
 
   vm.refresh = function(isResetPage) {
     if (isResetPage) vm.params.page = 1;
-    categoriesService.loadData(vm.params).then(function mySuccess(res) {
+    categoryService.loadData(vm.params).then(function mySuccess(res) {
       angular.extend(vm, res.data);
     })
   }
@@ -36,7 +36,7 @@ function CategoriesController($location, $scope, categoriesService) {
   vm.submit = function() {
     if (_.isUndefined(vm.currentCategory.id)) {
       removeErrorsFormInput();
-      categoriesService.createCategory({category: vm.currentCategory}).then(function mySuccess(res) {
+      categoryService.createCategory({category: vm.currentCategory}).then(function mySuccess(res) {
         if (res.data.status) {
           $("#category-modal").modal("hide");
           toastr["success"]("Thành công");
@@ -46,7 +46,7 @@ function CategoriesController($location, $scope, categoriesService) {
         }
       })
     } else {
-      categoriesService.updateCategory(vm.currentCategory.id, {category: vm.currentCategory}).then(function mySuccess(res) {
+      categoryService.updateCategory(vm.currentCategory.id, {category: vm.currentCategory}).then(function mySuccess(res) {
         removeErrorsFormInput();
         if (res.data.status) {
           $("#category-modal").modal("hide");
@@ -65,7 +65,7 @@ function CategoriesController($location, $scope, categoriesService) {
   }
 
   vm.destroyCategory = function() {
-    categoriesService.destroyCategory(vm.currentCategory.id).then(function mySuccess(res) {
+    categoryService.destroyCategory(vm.currentCategory.id).then(function mySuccess(res) {
       if (res.data.status) {
         $("#category-confirm-modal").modal("hide");
         toastr["success"]("Thành công");
