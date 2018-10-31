@@ -30,3 +30,17 @@ vi:
       male: "Nam"
       female: "Nữ"
       undefined: "Khác"
+    providers:
+      show:
+        load_data_success: "Tải nhà cung cấp thành công"
+      index:
+        load_data_success: "Tải danh sách nhà cung cấp thành công"
+      update:
+        success: "Cập nhật nhà cung cấp thành công"
+        fail: "Cập nhật nhà cung cấp thất bại, vui lòng thử lại."
+      destroy:
+        success: "Xóa thành công nhà cung cấp"
+        fail: "Xóa nhà cung cấp thất bại, vui lòng thử lại."
+      create:
+        success: "Tạo mới nhà cung cấp thành công"
+        fail: "Tạo mới nhà cung cấp thất bại, vui lòng thử lại."

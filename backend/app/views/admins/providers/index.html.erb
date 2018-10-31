@@ -1,0 +1,46 @@
+<div id="page-content" ng-controller="ProvidersController as vm" ng-init="vm.init()">
+  <div class="content-header">
+    <div class="header-section">
+      <h1>
+        <i class="fa fa-globe"></i>Quản lý nhà cung cấp<br><small></small>
+      </h1>
+    </div>
+  </div>
+  <ul class="breadcrumb breadcrumb-top">
+    <li><%= link_to "Bảng điều khiển", admins_dashboard_path %></li>
+    <li><%= link_to "Nhà cung cấp", admins_providers_path %></li>
+  </ul>
+  <div class="block full">
+    <div class="block-title">
+      <h2><strong>Danh sách hãng cung cấp sơn</strong></h2>
+    </div>
+    <button data-target="#provider-modal" data-toggle="modal" class="btn btn-sm btn-primary">
+      <i class="fa fa-plus"></i> Thêm mới nhà cung cấp</button>
+    <div class="table-responsive">
+      <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+        <thead>
+          <tr>
+            <th class="text-center">Mã số</th>
+            <th class="text-center">Tên nhà cung cấp</th>
+            <th class="text-center">Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="provider in vm.providers" >
+            <td class="text-center">{{ provider.id }}</td>
+            <td class="text-center">{{ provider.name }}</td>
+            <td class="text-center">
+              <div class="btn-group">
+                <a ng-click="vm.showData(provider.id)" data-toggle="tooltip" title="Edit"
+                  class="btn btn-xs btn-default"><i class="fa fa-pencil"></i></a>
+                <a ng-click="vm.destroyData(provider.id)" data-toggle="tooltip" title="Delete"
+                  class="btn btn-xs btn-danger"><i class="fa fa-times"></i></a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%= render "modal_providers" %>
+</div>

@@ -1,0 +1,8 @@
+vi:
+  activerecord:
+    errors:
+      models:
+        provider:
+          attributes:
+            name:
+              too_long: "Tên không được dài quá 50 kí tự"
