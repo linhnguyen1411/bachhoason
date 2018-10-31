@@ -3,7 +3,7 @@
     <h2><%= t ".title" %></h2>
     <p><%= t ".description" %></p>
   </div>
-  <%= form_for resource, as: resource_name, url: session_path(resource_name), html: {id: "form-user-session"} do |f| %>
+  <%= form_for resource, as: resource_name, url: admins_sessions_path(resource_name), html: {id: "form-login"} do |f| %>
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
@@ -29,7 +29,7 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="text-center">
           <button type="submit" class="btn btn-default btn-lock"> <%= t ".btn" %></button>
-          <button type="button" class="btn btn-default" onclick="window.location.href = '<%= admins_forgot_password_path %>'">
+          <button type="button" class="btn btn-default" onclick="window.location.href = '<%= new_admin_password_path %>'">
             <%= t ".forgot_password" %>
           </button>
         </div>

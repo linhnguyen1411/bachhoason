@@ -33,12 +33,12 @@ $(document).ready(function(){
       processData: false,
       contentType: false,
       success: function(res) {
-        location.href = "/admin/dashboard";
+        location.href = "/admins/dashboard";
       },
       error: function() {
         resetFormError();
         $(".form-group").addClass("has-error");
-        $("<span class='help-block'>Tên đăng nhập hoặc mật khẩu không đúng</span>").insertAfter($(".input-group:eq(0), .input-group:eq(1)").find("input"));
+        $("<span class='help-block'>Tên đăng nhập hoặc mật khẩu không đúng</span>").insertAfter($(".input-group:eq(0), .input-group:eq(1)").find("input").parents(".input-group"));
         setTimeOutSubmit("#form-login");
       }
     });
