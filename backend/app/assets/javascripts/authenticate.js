@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require plugin/bootstrap.min.js
 //= require plugin/toastr.min.js
+//= require plugin/lodash.min.js
 //= require plugin/ajax_errors.js
 //= require sweetalert
 //= require constant
