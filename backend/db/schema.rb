@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(version: 20181029082947) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "catalogs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+    t.string "name"
+    t.integer "parent_id"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string "name"
     t.string "slug"
@@ -103,13 +111,6 @@ ActiveRecord::Schema.define(version: 20181029082947) do
   create_table "image_sliders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string "description"
     t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "paints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
-    t.string "name"
-    t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -148,7 +149,7 @@ ActiveRecord::Schema.define(version: 20181029082947) do
 
   create_table "provider_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.integer "provider_id"
-    t.integer "paint_id"
+    t.integer "catalog_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -172,18 +173,6 @@ ActiveRecord::Schema.define(version: 20181029082947) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
