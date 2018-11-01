@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :providers
     resources :catalogs
     resources :abouts
+    resources :categories, except: [:show, :new, :edit]
     resources :branches
   end
 
