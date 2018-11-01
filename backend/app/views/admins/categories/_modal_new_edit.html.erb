@@ -1,0 +1,25 @@
+<div id="category-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h2 class="modal-title"><i class="fa fa-pencil"></i> Danh mục</h2>
+      </div>
+      <div class="modal-body">
+        <div class="form-horizontal form-bordered">
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="example-hf-password">Tên</label>
+            <div class="col-md-9 form-group-validate">
+              <input type="text" ng-model="vm.currentCategory.name" name="category[name]" class="form-control" placeholder="Nhập vào tên danh mục">
+            </div>
+          </div>
+          <div class="form-group form-actions">
+            <div class="col-md-9 col-md-offset-3">
+              <button type="button" ng-click="vm.submit()" class="btn btn-sm btn-warning"> Save</button>
+              <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

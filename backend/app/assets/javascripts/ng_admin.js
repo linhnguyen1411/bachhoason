@@ -2,6 +2,7 @@
 //= require angular/lib/angular-animate.min
 //= require angular/lib/angular-messages.min
 //= require angular/lib/angular-sanitize.min
+//= require angular/lib/ui-bootstrap-tpls-2.5.0.min
 //= require angular/common
 //= require angular/app/admin_app
 //= require_tree ./angular/services/admin

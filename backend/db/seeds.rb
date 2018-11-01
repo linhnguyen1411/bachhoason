@@ -87,3 +87,7 @@ ProviderDetail.create provider_id: 10, catalog_id: 1
 ProviderDetail.create provider_id: 10, catalog_id: 3
 
 
+puts "create categories"
+(1..100).each do |i|
+  Category.create! name: "category_#{i}"
+end
