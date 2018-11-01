@@ -35,12 +35,29 @@ vi:
         load_data_success: "Tải nhà cung cấp thành công"
       index:
         load_data_success: "Tải danh sách nhà cung cấp thành công"
+      create:
+        success: "Tạo mới nhà cung cấp thành công"
+        fail: "Tạo mới nhà cung cấp thất bại, vui lòng thử lại."
       update:
         success: "Cập nhật nhà cung cấp thành công"
         fail: "Cập nhật nhà cung cấp thất bại, vui lòng thử lại."
       destroy:
         success: "Xóa thành công nhà cung cấp"
         fail: "Xóa nhà cung cấp thất bại, vui lòng thử lại."
+    catalogs:
+      index:
+        load_data_success: "Tải danh sách các danh mục sơn && bột trét thành công"
+        title: "Quản lý danh mục sơn && bột trét"
+        list: "Danh sách danh mục sơn && bột trét"
+      show:
+        load_data_success: "Đã tìm thấy danh mục sơn && bột trét"
+        load_data_fail: "Không tìm thấy danh mục sơn && bột trét"
       create:
-        success: "Tạo mới nhà cung cấp thành công"
-        fail: "Tạo mới nhà cung cấp thất bại, vui lòng thử lại."
+        success: "Tạo mới danh mục sơn && bột trét thành công"
+        fail: "Tạo mới danh mục sơn && bột trét thất bại, vui lòng thử lại."
+      update:
+        success: "Cập nhật danh mục sơn && bột trét thành công"
+        fail: "Cập nhật danh mục sơn && bột trét thất bại, vui lòng thử lại."
+      destroy:
+        success: "Xóa danh mục sơn && bột trét thành công"
+        fail: "Xóa danh mục sơn && bột trét thất bại, vui lòng thử lại."

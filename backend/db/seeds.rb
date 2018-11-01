@@ -91,3 +91,8 @@ puts "create categories"
 (1..100).each do |i|
   Category.create! name: "category_#{i}"
 end
+
+puts "create catalogs"
+(1..100).each do |i|
+  Catalog.create! name: "Catalog_#{i}"
+end

@@ -17,6 +17,7 @@
 //= require plugin/lodash.min.js
 //= require constant
 //= require plugin/toastr.min.js
+//= require plugin/select2.full.min
 //= require admin/bootstrap.min.js
 //= require plugin/moment.min
 //= require plugin/bootstrap-datetimepicker
@@ -24,5 +25,5 @@
 //= require plugin/ajax_errors
 //= require_tree ./admin
 
-$(function(){ FormsWizard.init(); });
+$(function(){ FormsWizard.init(); $(".select2").select2({});});
 CKEDITOR.config.customConfig = '/assets/ckeditor/config.js';
