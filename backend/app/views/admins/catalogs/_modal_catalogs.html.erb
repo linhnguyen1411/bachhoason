@@ -2,7 +2,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h2 class="modal-title"><i class="fa fa-pencil"></i> Nhà cung cấp sơn</h2>
+        <h2 class="modal-title"><i class="fa fa-pencil"></i> Danh mục sơn && bột trét</h2>
       </div>
       <div class="modal-body">
         <div class="form-horizontal form-bordered">
@@ -11,7 +11,7 @@
               <label class="col-md-4 control-label" for="example-chosen">Danh mục</label>
               <div class="col-md-6 form-group-validate">
                 <select class="select2" style="width: 100%" ng-model="vm.currentCatalog.parent_id" id="select-parent-catalog" convert-to-number>
-                  <option value="" selected>Please select</option>
+                  <option value="" selected>Chọn danh mục cha</option>
                   <option ng-repeat="catalog in vm.catalogs_selection" value="{{catalog.id}}" ng-bind="catalog.name"></option>
                 </select>
               </div>

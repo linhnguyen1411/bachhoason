@@ -65,7 +65,7 @@ function CatalogsController($location, $scope, catalogService) {
     })
   }
 
-  vm.destroyData = function(id){
+  vm.destroyData = function(catalog){
     swal({
       title: "Chú ý!",
       text: "Bạn chắc chắn muốn xóa bỏ danh mục này?",
@@ -76,7 +76,7 @@ function CatalogsController($location, $scope, catalogService) {
       cancelButtonText: "Thôi không xóa nữa",
     },
     function() {
-      catalogService.destroyData(id).then(function mySuccess(res){
+      catalogService.destroyData(catalog.id).then(function mySuccess(res){
         if (res.data.status) {
           toastr["success"]("Thành công");
           vm.refresh();

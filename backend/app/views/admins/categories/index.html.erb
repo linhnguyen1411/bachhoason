@@ -1,38 +1,40 @@
 <div id="page-content" ng-controller="CategoriesController as vm" ng-init="vm.init()">
   <div class="content-header">
     <div class="header-section">
-      <div class="row">
-        <div class="col-md-4 col-lg-6 hidden-xs hidden-sm">
-          <h1>List of categories<br><small>You Look Awesome!</small></h1>
-        </div>
-      </div>
+      <h1>
+        <i class="fa fa-book"></i>Quản lý danh mục tin tức<br><small></small>
+      </h1>
     </div>
   </div>
+  <ul class="breadcrumb breadcrumb-top">
+    <li><%= link_to "Bảng điều khiển", admins_dashboard_path %></li>
+    <li><%= link_to "Danh mục tin tức", admins_categories_path %></li>
+  </ul>
   <div class="block">
     <button class="btn btn-primary" ng-click="vm.newCategory()">
-      <i class="fa fa-plus"></i> Add
+      <i class="fa fa-plus"></i> Thêm mới danh mục tin
     </button>
     <div class="table-responsive">
       <table class="table table-vcenter table-striped">
         <thead>
           <tr>
-            <th class="text-center">Id</th>
-            <th>Name</th>
-            <th>Slug</th>
-            <th class="text-center">Actions</th>
+            <th class="text-center">Mã số</th>
+            <th class="text-center">Tên</th>
+            <th class="text-center">Tên không dấu</th>
+            <th class="text-center">Thao tác</th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="category in vm.categories track by category.id">
             <td class="text-center" ng-bind="category.id"></td>
-            <td ng-bind="category.name"></td>
-            <td ng-bind="category.slug"></td>
-            <td class="text-center">
+            <td class="text-center" ng-bind="category.name"></td>
+            <td class="text-center" ng-bind="category.slug"></td>
+            <td class="text-center" class="text-center">
               <div class="btn-group btn-group-xs">
                 <button ng-click="vm.editCategory(category)" class="btn btn-default">
                   <i class="fa fa-pencil"></i>
                 </button>
-                <button ng-click="vm.openConfirmCategory(category)" class="btn btn-danger">
+                <button ng-click="vm.destroyCategory(category)" class="btn btn-danger">
                   <i class="fa fa-times"></i>
                 </button>
               </div>
@@ -44,7 +46,7 @@
     <div class="row">
       <div class="col-sm-5 hidden-xs">
         <div class="dataTables_info">
-          <strong ng-bind="vm.total_items"></strong> <strong>items</strong>
+          <strong ng-bind="vm.total_items"></strong> <strong>Danh mục</strong>
         </div>
       </div>
       <div class="col-sm-7 col-xs-12 clearfix">
@@ -55,5 +57,4 @@
     </div>
   </div>
   <%= render "admins/categories/modal_new_edit" %>
-  <%= render "admins/categories/modal_confirm" %>
 </div>
