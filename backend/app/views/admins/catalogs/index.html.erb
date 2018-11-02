@@ -10,14 +10,12 @@
     <li><%= link_to "Bảng điều khiển", admins_dashboard_path %></li>
     <li><%= link_to "Danh mục sơn và bột trét", admins_providers_path %></li>
   </ul>
-  <div class="block full">
-    <div class="block-title">
-      <h2><strong><%= t ".list" %></strong></h2>
-    </div>
-    <button ng-click="vm.openModalCreate()" data-toggle="modal" class="btn btn-sm btn-primary">
-      <i class="fa fa-plus"></i> Thêm mới danh mục</button>
+  <div class="block">
+    <button class="btn btn-primary" ng-click="vm.openModalCreate()">
+      <i class="fa fa-plus"></i> Thêm mới danh sản phẩm
+    </button>
     <div class="table-responsive">
-      <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
+      <table class="table table-vcenter table-striped">
         <thead>
           <tr>
             <th class="text-center">Mã số</th>
@@ -28,11 +26,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="catalog in vm.catalogs" >
-            <td class="text-center">{{ catalog.id }}</td>
-            <td class="text-center">{{ catalog.name }}</td>
-            <td class="text-center">{{ catalog.slug }}</td>
-            <td class="text-center">{{ catalog.parent_id }}</td>
+          <tr ng-repeat="catalog in vm.catalogs track by catalog.id">
+           <td class="text-center" ng-bind="catalog.id"></td>
+            <td class="text-center" ng-bind="catalog.name"></td>
+            <td class="text-center" ng-bind="catalog.slug"></td>
+            <td class="text-center" ng-bind="catalog.parent_id"></td>
             <td class="text-center">
               <div class="btn-group">
                 <a ng-click="vm.showData(catalog)" data-toggle="tooltip" title="Sửa"
@@ -44,6 +42,18 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="row">
+      <div class="col-sm-5 hidden-xs">
+        <div class="dataTables_info">
+          <strong ng-bind="vm.total_items"></strong> <strong>danh mục</strong>
+        </div>
+      </div>
+      <div class="col-sm-7 col-xs-12 clearfix">
+        <div class="dataTables_paginate paging_bootstrap" id="example-datatable_paginate">
+          <%= ng_pagination "vm.total_items", "vm.params.page", "vm.params.per_page", "vm.refresh()" %>
+        </div>
+      </div>
     </div>
   </div>
   <%= render "modal_catalogs" %>

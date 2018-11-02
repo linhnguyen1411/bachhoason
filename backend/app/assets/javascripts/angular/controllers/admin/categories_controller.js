@@ -59,20 +59,27 @@ function CategoriesController($location, $scope, categoryService) {
     }
   }
 
-  vm.openConfirmCategory = function(category) {
-    vm.currentCategory = angular.copy(category);
-    $("#category-confirm-modal").modal("show");
-  }
-
-  vm.destroyCategory = function() {
-    categoryService.destroyCategory(vm.currentCategory.id).then(function mySuccess(res) {
-      if (res.data.status) {
-        $("#category-confirm-modal").modal("hide");
-        toastr["success"]("Thành công");
-        vm.refresh(false);
-      } else {
-        toastr["warning"]("Thất bại");
-      }
+  vm.destroyCategory = function(category) {
+    swal({
+      title: "Chú ý!",
+      text: "Bạn chắc chắn muốn xóa bỏ danh mục này?",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#DD6B55',
+      confirmButtonText: "Chắc chắn rồi",
+      cancelButtonText: "Thôi không xóa nữa",
+    },
+    function() {
+      vm.currentCategory = angular.copy(category);
+      categoryService.destroyCategory(vm.currentCategory.id).then(function mySuccess(res) {
+        if (res.data.status) {
+          $("#category-confirm-modal").modal("hide");
+          toastr["success"]("Thành công");
+          vm.refresh(false);
+        } else {
+          toastr["warning"]("Thất bại");
+        }
+      });
     });
   }
 
